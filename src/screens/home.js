@@ -42,14 +42,14 @@ const HomeScreen = props => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Grid container spacing={12}>
+      <Grid container spacing={16}>
         <Grid item xs={7} sm={7}>
           <div className="l-home-lhs">
-            <p>
+            <div>
               <header className="App-header">
                 <h1 className="App-title">Welcome to React Chat Application</h1>
               </header>
-            </p>
+            </div>
           </div>
         </Grid>
         <Grid item xs={4} sm={4}>
