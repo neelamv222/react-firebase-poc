@@ -47,7 +47,7 @@ const HomeScreen = props => {
           <div className="l-home-lhs">
             <p>
               <header className="App-header">
-                <h1 className="App-title">Welcome to React</h1>
+                <h1 className="App-title">Welcome to React Chat Application</h1>
               </header>
             </p>
           </div>

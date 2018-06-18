@@ -12,3 +12,34 @@
     transform: rotate(360deg);
   }
 }
+
+form {
+  .btn {
+    white-space: nowrap;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .submit-btn {
+    color: #fff;
+    border: 1px solid #285f8f;
+    background-image: linear-gradient(#4f93ce,#285f8f);
+    margin-right: 20px; 
+  }
+  .clear-btn {
+    color: #000;
+    border: 1px solid grey;
+    background-image: linear-gradient(white, #d5d5d5);
+    cursor: pointer;
+  }
+  button.clear-btn:disabled, button.submit-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  .input-field {
+    width:100%;
+    margin: 10px 0;
+  }
+}

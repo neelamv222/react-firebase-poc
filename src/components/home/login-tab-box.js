@@ -5,6 +5,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
+import LoginForm from '../../screens/login-form';
+import SignUpForm from '../../screens/sign-up-form';
 
 const TabContainer = props => {
   return (
@@ -35,6 +37,10 @@ class LoginBoxTabs extends Component {
     this.setState({ value });
   };
 
+  showResults = values => {
+    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+  };
+
   render() {
     const { classes } = this.props;
     const { value } = this.state;
@@ -54,8 +60,8 @@ class LoginBoxTabs extends Component {
             <Tab label="NEW USER" />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer>SIGN IN</TabContainer>}
-        {value === 1 && <TabContainer>NEW USER</TabContainer>}
+        {value === 0 && <TabContainer><LoginForm onSubmit={this.showResults} /></TabContainer>}
+        {value === 1 && <TabContainer><SignUpForm onSubmit={this.showResults} /></TabContainer>}
       </div>
     );
   }
