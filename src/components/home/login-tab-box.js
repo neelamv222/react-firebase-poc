@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
-import LoginForm from '../../screens/login-form';
-import SignUpForm from '../../screens/sign-up-form';
+
+import LoginForm from './login-form';
+import SignUpForm from './sign-up-form';
 
 const TabContainer = props => {
   return (
@@ -60,8 +62,16 @@ class LoginBoxTabs extends Component {
             <Tab label="NEW USER" />
           </Tabs>
         </AppBar>
-        {value === 0 && <TabContainer><LoginForm onSubmit={this.showResults} /></TabContainer>}
-        {value === 1 && <TabContainer><SignUpForm onSubmit={this.showResults} /></TabContainer>}
+        {value === 0 && (
+          <TabContainer>
+            <LoginForm onSubmit={this.showResults} />
+          </TabContainer>
+        )}
+        {value === 1 && (
+          <TabContainer>
+            <SignUpForm onSubmit={this.showResults} />
+          </TabContainer>
+        )}
       </div>
     );
   }
