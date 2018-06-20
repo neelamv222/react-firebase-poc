@@ -18,3 +18,8 @@ const person = {
     eyeColor: "blue"
 };
 firebase.database().ref().set(person);
+
+/*Added google auth provider*/
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+
+export { firebase, googleAuthProvider };

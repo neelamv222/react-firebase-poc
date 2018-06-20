@@ -2,6 +2,9 @@
   .MuiTypography-title-44 {
     flex: 1;
   }
+  .app-heading-section {
+    margin: 0 auto;
+  }
 }
 
 @keyframes App-logo-spin {
@@ -10,6 +13,22 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+.login-section {
+  .App {
+    .or-grid {
+      margin-top: 130px;
+      margin-left: 30px
+    }
+    .social-providers-btn {
+      padding: 90px 0 0 30px;
+      .social-btns {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
   }
 }
 

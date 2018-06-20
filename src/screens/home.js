@@ -42,17 +42,17 @@ const HomeScreen = props => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Grid container spacing={16}>
-        <Grid item xs={7} sm={7}>
+      <Grid container spacing={16} className="app-heading-section">
+        <Grid item xs={4} sm={4}>
           <div className="l-home-lhs">
             <div>
               <header className="App-header">
-                <h1 className="App-title">Welcome to React Chat Application</h1>
+                <h1 className="App-title">Welcome to Chat App</h1>
               </header>
             </div>
           </div>
         </Grid>
-        <Grid item xs={4} sm={4}>
+        <Grid item xs={7} sm={7} className="login-section">
           <Paper className={classes.loginBoxStyle}>
             <LoginBoxTabs />
           </Paper>
