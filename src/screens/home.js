@@ -32,7 +32,6 @@ const styles = theme => ({
 
 const HomeScreen = props => {
   const { classes } = props;
-  console.log('this.props', props);
   return (
     <div className={classes.rootHome}>
       <AppBar position="static" className={classes.bar}>
@@ -42,8 +41,8 @@ const HomeScreen = props => {
           </Typography>
         </Toolbar>
       </AppBar>
-      <Grid container spacing={16} className="app-heading-section">
-        <Grid item xs={4} sm={4}>
+      <Grid container spacing={24} className="app-heading-section">
+        <Grid item xs={5} sm={5}>
           <div className="l-home-lhs">
             <div>
               <header className="App-header">
@@ -52,7 +51,7 @@ const HomeScreen = props => {
             </div>
           </div>
         </Grid>
-        <Grid item xs={7} sm={7} className="login-section">
+        <Grid item xs={6} sm={6} className="login-section">
           <Paper className={classes.loginBoxStyle}>
             <LoginBoxTabs />
           </Paper>

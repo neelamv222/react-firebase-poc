@@ -1,15 +1,16 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+//import PropTypes from 'prop-types';
+
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
-import Icon from '@material-ui/core/Icon';
 import Grid from '@material-ui/core/Grid';
-import validate from '../../helper/form-validation';
-import 'font-awesome/css/font-awesome.min.css';
-import { connect } from 'react-redux';
-import { startLogin } from '../../reducers/auth-actions';
 
+import 'font-awesome/css/font-awesome.min.css';
+
+import validate from '../../helper/form-validation';
+import { startLogin } from '../../reducers/auth-actions';
 
 const renderTextField = props => (
   <TextField
@@ -23,13 +24,13 @@ const renderTextField = props => (
   />
 );
 
-const LoginForm = props => {
+export const LoginForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
 
   return (
-    <div className="App">
-      <Grid container spacing={16}>
-        <Grid item xs={16} sm={5}>
+    <div className="l-login-form">
+      <Grid container spacing={24}>
+        <Grid item xs={12} sm={5}>
           <h2>Login Into your Account:</h2>
           <form onSubmit={handleSubmit}>
             <div>
@@ -67,20 +68,25 @@ const LoginForm = props => {
             </button>
           </form>
         </Grid>
-        <Grid className="or-grid" item xs={16} sm={1}>
+        <Grid className="or-grid" item xs={6} sm={1}>
           OR
         </Grid>
-        <Grid className="social-providers-btn" item xs={16} sm={5}>
-          <Button variant="contained" color="secondary" className="social-btns" onClick={props.startLogin}>
+        <Grid className="social-providers-btn" item xs={6} sm={5}>
+          <Button
+            variant="contained"
+            color="secondary"
+            className="social-btns"
+            onClick={props.startLogin}
+          >
             Sign In with Google
             <span className="fa-stack fa-lg">
-              <i className="fa fa-google-plus fa-stack-1x"></i>
+              <i className="fa fa-google-plus fa-stack-1x" />
             </span>
           </Button>
           <Button variant="contained" color="primary" className="social-btns">
             Sign In with Facebook
             <span className="fa-stack fa-lg">
-              <i className="fa fa-facebook fa-stack-1x"></i>
+              <i className="fa fa-facebook fa-stack-1x" />
             </span>
           </Button>
         </Grid>
@@ -89,11 +95,16 @@ const LoginForm = props => {
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = dispatch => ({
   startLogin: () => dispatch(startLogin())
 });
 
-export default connect(undefined, mapDispatchToProps)(reduxForm({
-  form: 'LoginForm',
-  validate
-})(LoginForm));
+export default connect(
+  undefined,
+  mapDispatchToProps
+)(
+  reduxForm({
+    form: 'signIn',
+    validate
+  })(LoginForm)
+);

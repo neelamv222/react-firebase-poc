@@ -32,7 +32,7 @@ const SignUpForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props;
 
   return (
-    <div className="App">
+    <div className="sign-up-form">
       <form onSubmit={handleSubmit}>
         <div>
           <Field
