@@ -59,6 +59,15 @@ const SignUpForm = props => {
           />
         </div>
         <div>
+          <Field
+            className="input-field"
+            name="password"
+            type="password"
+            component={renderTextField}
+            label="Passowrd"
+          />
+        </div>
+        <div>
           <Field name="sex" component={renderRadioGroup}>
             <label>
               <Radio value="male" label="male" />Male
