@@ -18,6 +18,8 @@ export const signInAction = (values) => {
 export const signUpAction = (values) => {
     const { email, password } = values;
     return () => {
+        /*TODO: Need to save signUp user information to database. As of now itis getting saved directly to
+        authentication/users tab of firebase.*/
         firebase.auth().createUserWithEmailAndPassword(email, password).then((response) => {
             alert('You are succssfully signed Up by: ' + response.email);
         }, (error) => {
