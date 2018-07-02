@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
 import { withStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
@@ -9,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 
 import LoginForm from './login-form';
 import SignUpForm from './sign-up-form';
+
+import { signInAction, signUpAction } from '../../reducers/auth-actions';
 
 const TabContainer = props => {
   return (
@@ -39,8 +41,14 @@ class LoginBoxTabs extends Component {
     this.setState({ value });
   };
 
-  showResults = values => {
-    window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+  onSignInSubmit = values => {
+    //window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+    this.props.signInAction(values);
+  };
+
+  onSignUpSubmit = values => {
+    //window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
+    this.props.signUpAction(values);
   };
 
   render() {
@@ -64,12 +72,12 @@ class LoginBoxTabs extends Component {
         </AppBar>
         {value === 0 && (
           <TabContainer>
-            <LoginForm onSubmit={this.showResults} />
+            <LoginForm onSubmit={this.onSignInSubmit} />
           </TabContainer>
         )}
         {value === 1 && (
           <TabContainer>
-            <SignUpForm onSubmit={this.showResults} />
+            <SignUpForm onSubmit={this.onSignUpSubmit} />
           </TabContainer>
         )}
       </div>
@@ -80,5 +88,9 @@ class LoginBoxTabs extends Component {
 LoginBoxTabs.propTypes = {
   classes: PropTypes.object.isRequired
 };
+const mapDispatchToProps = dispatch => ({
+  signInAction: (values) => dispatch(signInAction(values)),
+  signUpAction: (values) => dispatch(signUpAction(values))
+});
 
-export default withStyles(styles)(LoginBoxTabs);
+export default connect(undefined, mapDispatchToProps)(withStyles(styles)(LoginBoxTabs));
